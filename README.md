@@ -1,12 +1,12 @@
 # enhanced-email-deep-validator
 
-A very small modification from the original email-deep-validator (https://www.npmjs.com/package/email-deep-validator) that verifies an email address checking MX records and SMTP connection, returning the MX records.
+A very small modification from the original [email-deep-validator](https://www.npmjs.com/package/email-deep-validator) that verifies an email address checking MX records and SMTP connection, returning the MX records.
 
 ## Installation
 
 Install the module through NPM:
 
-    $ npm install email-deep-validator --save
+    $ npm install enhanced-email-deep-validator --save
 
 **Requires Node 6 or above**
 
@@ -15,7 +15,7 @@ Install the module through NPM:
 Include the module, create a new `EmailValidator` object and call `verify` method:
 
 ```javascript
-const EmailValidator = require('email-deep-validator');
+const EmailValidator = require('enhanced-email-deep-validator');
 
 const emailValidator = new EmailValidator();
 emailValidator.verify('foo@email.com')
