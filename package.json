@@ -5,13 +5,13 @@
   "main": "lib/index.js",
   "scripts": {
     "autotest": "node_modules/.bin/supervisor -q -n exit -x node_modules/.bin/mocha -- -b",
-    "test": "node_modules/.bin/nodemon mocha"
+    "test": "echo 'test mode...'; ./node_modules/.bin/nodemon --exec mocha;"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/desoares1975/email-deep-validator"
   },
-  "author": "desoares1975 <fabio.desoares@yahoo.com>, Stefano Sala <stefano@conversio.com>",
+  "author": "desoares1975 <fabio.desoares@yahoo.com.br>, Stefano Sala <stefano@conversio.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/desoares1975/email-deep-validator/issues"

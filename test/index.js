@@ -1,6 +1,7 @@
 'use strict';
 
 const chai = require('chai'),
+  expect = chai.expect,
   sinon = require('sinon'),
   dns = require('dns'),
   net = require('net'),
@@ -63,7 +64,8 @@ describe('lib/index', () => {
       setTimeout(() => self.socket.write('250 Foo'), 10);
 
       return self.validator.verify('foo@bar.com')
-        .then(() => {
+        .then(mxRecords => {
+          expect(mxRecords.length).to.equal(3);
           sinon.assert.called(self.resolveMxStub);
           sinon.assert.called(self.connectStub);
         });
