@@ -1,6 +1,6 @@
 {
   "name": "enhanced-email-deep-validator",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Verify email address checking MX records, and SMTP connection. Return the MX records.",
   "main": "lib/index.js",
   "scripts": {

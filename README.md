@@ -1,8 +1,6 @@
-# email-deep-validator
+# enhanced-email-deep-validator
 
-[![Build Status](https://travis-ci.org/getconversio/email-deep-validator.svg?branch=master)](https://travis-ci.org/getconversio/email-deep-validator)
-
-Verify email address checking MX records, and SMTP connection.
+A very small modification from the original email-deep-validator (https://www.npmjs.com/package/email-deep-validator) that verifies an email address checking MX records and SMTP connection, returning the MX records.
 
 ## Installation
 
@@ -21,7 +19,7 @@ const EmailValidator = require('email-deep-validator');
 
 const emailValidator = new EmailValidator();
 emailValidator.verify('foo@email.com')
-  .then(() => console.log('Email is valid.');
+  .then(mxRecords => console.log('Email is valid.', mxRecords);
 
 emailValidator.verify('non-existent@email.com')
   .catch(err => console.log('Email is not valid', err.message));
