@@ -66,6 +66,9 @@ describe('lib/index', () => {
       return self.validator.verify('foo@bar.com')
         .then(mxRecords => {
           expect(mxRecords.length).to.equal(3);
+          expect(mxRecords[0]).to.equal('mx2.foo.com');
+          expect(mxRecords[1]).to.equal('mx3.foo.com');
+          expect(mxRecords[2]).to.equal('mx1.foo.com');
           sinon.assert.called(self.resolveMxStub);
           sinon.assert.called(self.connectStub);
         });
