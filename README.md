@@ -1,6 +1,6 @@
 # enhanced-email-deep-validator
 
-A very small modification from the original [email-deep-validator](https://www.npmjs.com/package/email-deep-validator) that verifies an email address checking MX records and SMTP connection, returning the MX records.
+A very small modification from the original [email-deep-validator](https://www.npmjs.com/package/email-deep-validator) that verifies an email address checking MX records and SMTP connection, returning the MX records whenever it exits.
 
 ## Installation
 
@@ -22,7 +22,7 @@ emailValidator.verify('foo@email.com')
   .then(mxRecords => console.log('Email is valid.', mxRecords);
 
 emailValidator.verify('non-existent@email.com')
-  .catch(err => console.log('Email is not valid', err.message));
+  .catch(err => console.log('Email is not valid', err.message, err.mxRecords));
 ```
 
 ## Configuration options

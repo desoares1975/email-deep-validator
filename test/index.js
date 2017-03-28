@@ -167,7 +167,7 @@ describe('lib/index', () => {
       return self.validator.checkViaSmtp('bar@foo.com');
     });
 
-    it('should throw an error on socket error', () => {
+    it('should throw an error on socket error and return mxRecors with err', () => {
       const socket = {
         on: (event, callback) => {
           if (event === 'error') return callback(new Error());
@@ -177,11 +177,14 @@ describe('lib/index', () => {
       self.connectStub = self.connectStub.returns(socket);
 
       return self.validator.checkViaSmtp('bar@foo.com')
-        .catch(err => err.should.be.an.instanceof(Error));
+        .catch(err => {
+          err.mxRecords.should.be.an.instanceof(Array)
+          err.should.be.an.instanceof(Error)
+        });
     });
 
     it('should throw an error on smtp errors', () => {
-      const socket = new net.Socket({ });
+      const socket = new net.Socket({});
 
       self.sandbox.stub(socket, 'write', function(data) {
         if (!data.includes('QUIT')) this.emit('data', '550 Foo');
